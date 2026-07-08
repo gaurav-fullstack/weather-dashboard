@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    width: fit-content;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+form {
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 760px;
+}
+
+.searchBox {
+    height: 42px;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #2323;
+}
+
+.submitButton {
+    margin-right: 12px;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+    background: #10b981;
+    color: white;
+}
+
+
+.weather-card {
+    position: relative;
+    width: 340px;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 28px 24px 22px;
+    color: #fff;
+}
+
+.weather-card-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1800px;
+    justify-content: center;
+}
+
+/* Ambient glow blobs */
+.weather-card::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.5), transparent 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.weather-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -30px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.35), transparent 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.location h2 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.location h2 span {
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.location p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 3px;
+}
+
+.weather-icon {
+    font-size: 48px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    animation: animationNew 1.5s infinite ease-in-out;
+}
+
+@keyframes animationNew {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* Temperature */
+.temp-section {
+    margin-bottom: 6px;
+    margin-top: -30px;
+}
+
+.temp-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.temp-main {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.temp-unit {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 8px;
+}
+
+.condition {
+    font-size: 14px;
+    color: #93c5fd;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.feels-like {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 3px;
+    margin-bottom: 22px;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 18px;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 12px 8px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.stat-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.update-time {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.refresh-btn {
+    background: rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    color: #a5b4fc;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.error.refresh-btn {
+    color: #3e4878 !important;
+}
+
+.refresh-btn:hover {
+    background: rgba(99, 102, 241, 0.55);
+    color: #fff;
+}
+
+
+.error-card {
+    max-width: 400px;
+    background: linear-gradient(145deg, #fff, #f8f9fa);
+}
+
+.error-header h2 {
+    color: #dc3545;
+}
+
+.error-section {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.error-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+#errorTitle {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+#errorMessage {
+    color: #666;
+    line-height: 1.5;
+}
+
+.error-help {
+    padding: 15px;
+}
+
+.error-help h4 {
+    margin-bottom: 10px;
+    color: #7c7c7c;
+}
+
+.error-help ul {
+    padding-left: 18px;
+    color: #555;
+}
+
+.error-help li {
+    margin: 8px 0;
+}
+
+.error.update-time {
+    color: #7c7c7c;
+}
+
+.error.divider {
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    margin-bottom: 18px;
+}
