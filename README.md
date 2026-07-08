@@ -6,7 +6,7 @@ A responsive Weather Dashboard built using **Vanilla JavaScript**, **HTML5**, an
 
 ## 🚀 Live Demo
 
-> **GitHub Pages:** *(Add your deployed URL here after deployment)*
+> **GitHub Pages:** *(https://gaurav-fullstack.github.io/weather-dashboard/)*
 
 ---
 
@@ -14,8 +14,8 @@ A responsive Weather Dashboard built using **Vanilla JavaScript**, **HTML5**, an
 
 > ![Weather Dashboard](assets/weather_dashboard_01.png)
    
-   [Weather Dashboard GIF](assets/weather_dashboard.gif)
-> 
+  
+>  ![Demo Video](assets/weather_dashboard.gif)
 
 ---
 
